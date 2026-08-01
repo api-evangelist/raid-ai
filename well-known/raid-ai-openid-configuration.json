@@ -1,0 +1,72 @@
+{
+  "issuer": "https://api.raidxai.com/",
+  "authorization_endpoint": "https://api.raidxai.com/connect/authorize",
+  "token_endpoint": "https://api.raidxai.com/connect/token",
+  "introspection_endpoint": "https://api.raidxai.com/connect/introspect",
+  "end_session_endpoint": "https://api.raidxai.com/connect/logout",
+  "userinfo_endpoint": "https://api.raidxai.com/connect/userinfo",
+  "jwks_uri": "https://api.raidxai.com/.well-known/jwks",
+  "grant_types_supported": [
+    "authorization_code",
+    "refresh_token",
+    "client_credentials",
+    "password"
+  ],
+  "response_types_supported": [
+    "code"
+  ],
+  "response_modes_supported": [
+    "query",
+    "form_post",
+    "fragment"
+  ],
+  "scopes_supported": [
+    "openid",
+    "email",
+    "profile",
+    "roles",
+    "offline_access",
+    "Raid",
+    "xbot.admin",
+    "whatsappbot.admin"
+  ],
+  "claims_supported": [
+    "aud",
+    "exp",
+    "iat",
+    "iss",
+    "sub"
+  ],
+  "id_token_signing_alg_values_supported": [
+    "RS256"
+  ],
+  "code_challenge_methods_supported": [
+    "plain",
+    "S256"
+  ],
+  "subject_types_supported": [
+    "public"
+  ],
+  "prompt_values_supported": [
+    "consent",
+    "login",
+    "none",
+    "select_account"
+  ],
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_post",
+    "private_key_jwt",
+    "client_secret_basic"
+  ],
+  "introspection_endpoint_auth_methods_supported": [
+    "client_secret_post",
+    "private_key_jwt",
+    "client_secret_basic"
+  ],
+  "require_pushed_authorization_requests": false,
+  "claims_parameter_supported": false,
+  "request_parameter_supported": false,
+  "request_uri_parameter_supported": false,
+  "tls_client_certificate_bound_access_tokens": false,
+  "authorization_response_iss_parameter_supported": true
+}

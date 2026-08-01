@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.raidxai.com/docs/versioning
+versioning:
+  scheme: additive-compatible
+  docs: https://docs.raidxai.com/docs/versioning
+  policy: >-
+    The API evolves additively. Adding endpoints, optional request parameters,
+    response fields, and new enum values are all backward-compatible and may
+    ship at any time without a version change. Clients are expected to ignore
+    unknown fields and tolerate new enum values.
+deprecation:
+  policy_url: https://docs.raidxai.com/docs/versioning
+  sunset_header: false
+  policy: >-
+    Breaking changes (removing/renaming a field, changing a field's type,
+    removing an endpoint) are never made to the current version. Any such
+    change ships under a new, clearly documented version with the existing
+    behavior supported during a migration window. Material changes are
+    announced ahead of time.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+notes: >-
+  No public status page (status.raidxai.com does not resolve) and no published
+  SLA/uptime target found. Liveness probe: GET https://api.raidxai.com/health
+  (unauthenticated, plain text).

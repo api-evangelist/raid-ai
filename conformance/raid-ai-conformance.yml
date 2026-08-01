@@ -1,0 +1,33 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.raidxai.com/docs
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: >-
+      openid-configuration advertises authorization_code, client_credentials,
+      password and refresh_token grants with connect/authorize + connect/token.
+  - id: oidc
+    conforms: true
+    evidence: >-
+      https://api.raidxai.com/.well-known/openid-configuration present with
+      userinfo, jwks, RS256 id_token signing.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: No real /.well-known/security.txt (marketing host returns SPA shell; api host 401).
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      Errors use a custom envelope { "error": { "code", "message" } } with
+      application/json, not application/problem+json.
+  - id: rfc6750-bearer-token
+    conforms: true
+    evidence: API token sent as Authorization Bearer per docs.
+  - id: pkce
+    conforms: true
+    evidence: code_challenge_methods_supported [S256, plain] in openid-configuration.
+  - id: soc2
+    conforms: false
+    evidence: >-
+      Docs state Raid AI is "designed around the SOC 2 trust service criteria and
+      actively working toward formal certification" — not yet certified.

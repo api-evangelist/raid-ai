@@ -1,0 +1,59 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.raidxai.com/docs
+authentication:
+  style: bearer-api-token
+  header: Authorization
+  scoped: true
+  ref: authentication/raid-ai-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    No idempotency-key header or contract is documented. Detection endpoints are
+    synchronous single-shot analyses; fact-checking is submit-then-poll by jobId.
+pagination:
+  supported: false
+  notes: >-
+    No list/collection pagination documented. Image analysis accepts up to 10
+    files per request; fact-checking uses a submit -> poll (GET
+    /api/app/fact-checking/jobs/{id}) job model rather than paged collections.
+async_jobs:
+  pattern: submit-then-poll
+  submit_returns: jobId
+  poll: GET /api/app/fact-checking/jobs/{id}
+  terminal_status: Completed
+  applies_to: [fact-checking]
+long_running:
+  notes: >-
+    Document analysis holds the request open (~90-120s); if not ready within the
+    server wait budget (150s default) it returns 202 with the record still
+    processing. Call document endpoints from background jobs with long timeouts.
+request_tracing:
+  client_correlation_field: externalId
+  notes: >-
+    Clients may pass an externalId to correlate a request; support asks for it
+    (never the token) when reporting issues.
+versioning:
+  scheme: additive-compatible
+  ref: lifecycle/raid-ai-lifecycle.yml
+rate_limiting:
+  scope: per-api-key
+  unauth_scope: per-ip
+  over_limit_status: 429
+  over_limit_body: empty
+  retry_guidance: exponential backoff with jitter; also retry transient 5xx
+  ref: https://docs.raidxai.com/docs/rate-limiting
+error_envelope:
+  format: custom-json
+  shape: '{ "error": { "code": "UNAUTHORIZED", "message": "..." } }'
+  content_type: application/json
+  ref: errors/raid-ai-error-codes.yml
+media:
+  image_formats: [jpg, jpeg, png, webp, heic, heif, tiff]
+  audio_formats: [wav, mp3, flac, m4a, opus]
+  document_formats: [pdf]
+  max_file_mb: 50
+  image_batch_max: 10
+data_retention:
+  policy: zero-retention
+  notes: Media analyzed in memory and discarded immediately; not logged, stored, or used to retrain.

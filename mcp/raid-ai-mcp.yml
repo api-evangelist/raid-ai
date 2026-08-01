@@ -1,0 +1,77 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: https://docs.raidxai.com/docs/reference
+notes: >-
+  No official hosted/remote MCP server was found for Raid AI (searched docs, npm
+  @modelcontextprotocol, and MCP registries — none published). This is a
+  CANDIDATE tool list derived from the documented REST operations in the Raid AI
+  API reference. operationIds are the documented reference ids; there is no
+  public OpenAPI (api.raidxai.com/openapi.json is 401-gated), so paths are the
+  documented endpoints.
+server:
+  name: raid-ai
+  transport: http
+  url: null
+  auth: bearer-api-token
+tools:
+  - name: analyze_image
+    description: Upload up to 10 images and receive a verdict, confidence, and per-image details.
+    source_operation: imageForensicsProcess
+    method: POST
+    path: /api/app/image-forensics/process
+    scope: image
+  - name: analyze_image_from_url
+    description: Analyze an image fetched from a public URL (direct link or social/media page).
+    source_operation: imageForensicsProcessFromUrl
+    method: POST
+    path: /api/app/image-forensics/process-from-url
+    scope: image
+  - name: analyze_audio
+    description: Analyze an audio file for AI-generated / cloned voice (default workflow), transcription, or intelligence analysis.
+    source_operation: voiceAnalysisProcess
+    method: POST
+    path: /api/app/voice-analysis/process
+    scope: audio
+  - name: analyze_audio_from_url
+    description: Analyze audio fetched from a public URL (direct audio link or video/social page).
+    source_operation: voiceAnalysisProcessFromUrl
+    method: POST
+    path: /api/app/voice-analysis/process-from-url
+    scope: audio
+  - name: analyze_document
+    description: Upload a PDF for tampering/consistency/anomaly analysis; long-running (90-120s).
+    source_operation: documentForensicsAnalyze
+    method: POST
+    path: /api/app/document
+    scope: document
+  - name: detect_document_image_tampering
+    description: Detect tampering / AI editing in a single document-page image; returns localized tampered regions.
+    source_operation: documentDeepfakeDetect
+    method: POST
+    path: /api/app/document-image
+    scope: document-image
+  - name: submit_fact_check
+    description: Submit an image, audio, or video for asynchronous fact-checking; returns a jobId.
+    source_operation: factCheckingSubmit
+    method: POST
+    path: /api/app/fact-checking/submit
+    scope: fact-check
+  - name: submit_fact_check_from_url
+    description: Fact-check media fetched from a public URL (article, social post, or media link).
+    source_operation: factCheckingSubmitFromUrl
+    method: POST
+    path: /api/app/fact-checking/submit-from-url
+    scope: fact-check
+  - name: get_fact_check_job
+    description: Poll the status and result of a submitted fact-checking job.
+    source_operation: factCheckingGetJob
+    method: GET
+    path: /api/app/fact-checking/jobs/{id}
+    scope: fact-check
+  - name: health_check
+    description: Liveness/readiness probe; plain text, no authentication.
+    source_operation: healthCheck
+    method: GET
+    path: /health
+    scope: null

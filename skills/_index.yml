@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: generated
+source: https://docs.raidxai.com/docs/reference
+notes: >-
+  Skills grounded in the documented Raid AI API reference operations (no public
+  OpenAPI spec — operationIds are the documented reference ids). Auth, scopes,
+  error and rate-limit rules come from conventions/ + errors/ + authentication/.
+skills:
+  - file: raid-ai-detect-image.md
+    name: Detect an AI-generated or deepfaked image
+    api: docs.raidxai.com/docs/reference
+    operations: [imageForensicsProcess, imageForensicsProcessFromUrl]
+  - file: raid-ai-detect-audio.md
+    name: Detect an AI-generated or cloned voice
+    api: docs.raidxai.com/docs/reference
+    operations: [voiceAnalysisProcess, voiceAnalysisProcessFromUrl]
+  - file: raid-ai-fact-check-media.md
+    name: Fact-check media against the public record
+    api: docs.raidxai.com/docs/reference
+    operations: [factCheckingSubmit, factCheckingSubmitFromUrl, factCheckingGetJob]

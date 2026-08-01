@@ -1,0 +1,22 @@
+generated: '2026-07-20'
+method: searched
+source: https://api.raidxai.com/.well-known/openid-configuration
+host: https://api.raidxai.com
+documents:
+  - path: /.well-known/openid-configuration   # OIDC discovery (OpenIddict)
+    status: 200
+    file: raid-ai-openid-configuration.json
+  - path: /.well-known/jwks                    # JSON Web Key Set
+    status: 200
+    file: raid-ai-jwks.json
+  - path: /.well-known/oauth-authorization-server  # RFC 8414
+    status: 404
+  - path: /.well-known/security.txt            # RFC 9116 — gated on api host
+    status: 401
+notes: >-
+  raidxai.com serves a single-page-app fallback that returns HTTP 200 for any
+  path, so /.well-known/security.txt on the marketing host is NOT a real
+  security.txt (it is the SPA shell) and was not captured. The api.raidxai.com
+  OIDC discovery + JWKS documents are genuine JSON and are saved verbatim. The
+  OAuth/OIDC authorization server is an OpenIddict deployment
+  (connect/authorize, connect/token, connect/introspect, connect/userinfo).

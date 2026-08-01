@@ -1,8 +1,32 @@
 aid: raid-ai
 name: Raid AI
-description: Raid AI is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Raid AI (RAID AI, Inc.) is an enterprise-grade deepfake and AI-content
+  forensics platform covering audio, image, document, and video. Its REST API
+  detects AI-generated, cloned, deepfaked, and digitally edited media —
+  returning a verdict, a confidence score, and (on detailed plans) generator
+  attribution — across image forensics, voice analysis, document tampering
+  detection, and asynchronous fact-checking against the public record. Audio
+  detection claims 98% accuracy and sub-50ms latency across 100+ languages with
+  specialized Arabic dialect coverage. Raid AI runs a zero-retention pipeline
+  (media analyzed in memory and discarded), offers cloud API plus on-premise
+  air-gapped deployment, and ships native integrations with Microsoft Teams,
+  Zoom, Google Meet, Slack, Webex, and WhatsApp for financial services, call
+  centers, enterprise meetings, and government use cases.
 url: https://raw.githubusercontent.com/api-evangelist/raid-ai/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://raidxai.com/raid-ai-icon.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,15 +35,120 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Deepfake Detection
+- AI Content Detection
+- Media Forensics
+- Voice / Audio Detection
+- Image Forensics
+- Document Forensics
+- Fact-Checking
+- Trust & Safety
+- Security
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Raid AI Detection & Fact-Checking API
+  description: >-
+    One REST API to detect AI-generated and manipulated images, audio, and
+    documents — and fact-check media against the public record. Bearer API-token
+    auth with per-key detection scopes (image, audio, fact-check, document,
+    document-image).
+  humanURL: https://docs.raidxai.com/docs
+  baseURL: https://api.raidxai.com
+  tags:
+  - Deepfake Detection
+  - Image Forensics
+  - Voice Analysis
+  - Document Forensics
+  - Fact-Checking
+  properties:
+  - type: Documentation
+    url: https://docs.raidxai.com/docs
+  - type: APIReference
+    url: https://docs.raidxai.com/docs/reference
+  - type: GettingStarted
+    url: https://docs.raidxai.com/docs/getting-started
+  - type: Authentication
+    url: authentication/raid-ai-authentication.yml
+  - type: OAuthScopes
+    url: scopes/raid-ai-scopes.yml
+  - type: WellKnown
+    url: well-known/raid-ai-well-known.yml
+  - type: LLMsTxt
+    url: llms/raid-ai-llms.txt
+  - type: Conventions
+    url: conventions/raid-ai-conventions.yml
+  - type: ErrorCatalog
+    url: errors/raid-ai-error-codes.yml
+  - type: Lifecycle
+    url: lifecycle/raid-ai-lifecycle.yml
+  - type: Conformance
+    url: conformance/raid-ai-conformance.yml
+  - type: MCPServer
+    url: mcp/raid-ai-mcp.yml
+  - type: AgentSkill
+    url: skills/_index.yml
 common:
+- type: DomainSecurity
+  url: security/raid-ai-domain-security.yml
 - type: Website
   url: https://raidxai.com
+- type: DeveloperPortal
+  url: https://docs.raidxai.com/docs
+- type: Documentation
+  url: https://docs.raidxai.com/docs
+- type: APIReference
+  url: https://docs.raidxai.com/docs/reference
+- type: GettingStarted
+  url: https://docs.raidxai.com/docs/getting-started
+- type: Support
+  url: https://docs.raidxai.com/docs/support
+- type: Blog
+  url: https://raidxai.com/blog
+- type: Pricing
+  url: https://raidxai.com/pricing
+- type: SignUp
+  url: https://app.raidxai.com/dashboard
+- type: Login
+  url: https://app.raidxai.com/dashboard
+- type: TermsOfService
+  url: https://raidxai.com/terms
+- type: PrivacyPolicy
+  url: https://raidxai.com/privacy
+- type: Authentication
+  url: authentication/raid-ai-authentication.yml
+- type: OAuthScopes
+  url: scopes/raid-ai-scopes.yml
+- type: WellKnown
+  url: well-known/raid-ai-well-known.yml
+- type: LLMsTxt
+  url: llms/raid-ai-llms.txt
+- type: Conventions
+  url: conventions/raid-ai-conventions.yml
+- type: ErrorCatalog
+  url: errors/raid-ai-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/raid-ai-lifecycle.yml
+- type: Deprecation
+  url: https://docs.raidxai.com/docs/versioning
+- type: Conformance
+  url: conformance/raid-ai-conformance.yml
+- type: MCPServer
+  url: mcp/raid-ai-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/104616241/
+- type: Twitter
+  url: https://x.com/Raidxai
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1

@@ -1,0 +1,45 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.raidxai.com/docs/authentication
+docs: https://docs.raidxai.com/docs/authentication
+notes: >-
+  Two distinct scope surfaces. (1) API-key scopes gate which detection
+  endpoints a dashboard-issued bearer token may call; documented on the
+  Authentication page. (2) OAuth2/OIDC scopes advertised by the OpenIddict
+  authorization server (from the openid-configuration discovery document) —
+  platform/dashboard and bot identity, not the detection API-key surface.
+api_key_scopes:
+  - scope: image
+    endpoints: /api/app/image-forensics/*
+    description: Analyze images for AI generation, deepfakes, and tampering.
+  - scope: audio
+    endpoints: /api/app/voice-analysis/*
+    description: Analyze audio for AI-generated / cloned voices, with optional transcription.
+  - scope: fact-check
+    endpoints: /api/app/fact-checking/*
+    description: Submit and poll asynchronous fact-checking jobs.
+  - scope: document
+    endpoints: /api/app/document (documentForensicsAnalyze)
+    description: Analyze a PDF document for tampering, consistency, and anomalies.
+  - scope: document-image
+    endpoints: documentDeepfakeDetect
+    description: Detect tampering / AI editing in a single document-page image.
+oauth2_scopes:
+  source: https://api.raidxai.com/.well-known/openid-configuration
+  scopes:
+    - scope: openid
+      description: OpenID Connect authentication.
+    - scope: email
+      description: Access the user's email claim.
+    - scope: profile
+      description: Access the user's profile claims.
+    - scope: roles
+      description: Access the user's role claims.
+    - scope: offline_access
+      description: Issue refresh tokens for long-lived access.
+    - scope: Raid
+      description: Access to the Raid platform resource server.
+    - scope: xbot.admin
+      description: Administrative access to the X (Twitter) bot integration.
+    - scope: whatsappbot.admin
+      description: Administrative access to the WhatsApp bot integration.

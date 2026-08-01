@@ -1,0 +1,35 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.raidxai.com/docs/authentication
+format: custom-json
+envelope:
+  shape: '{ "error": { "code": "<CODE>", "message": "<human message>" } }'
+  content_type: application/json
+errors:
+  - status: 401
+    code: UNAUTHORIZED
+    title: Invalid or missing API token
+    cause: Missing, invalid, revoked, or expired API key in the Authorization header.
+    remediation: "Create/rotate a key in the dashboard; send it as `Authorization: Bearer <token>`."
+  - status: 403
+    code: FORBIDDEN
+    title: Key not scoped for this endpoint
+    cause: The API key does not carry the scope the endpoint requires (image / audio / fact-check / document / document-image).
+    remediation: Issue a key with the required detection scope.
+  - status: 429
+    code: TOO_MANY_REQUESTS
+    title: Rate limit exceeded
+    cause: Per-key (or per-IP for unauthenticated) request rate limit exceeded.
+    body: empty
+    remediation: Back off and retry with exponential backoff and jitter.
+  - status: 202
+    code: PROCESSING
+    title: Result not ready within wait budget
+    cause: Long-running document analysis did not finish within the server wait budget (150s default).
+    remediation: Treat as still-processing; retry / poll from a background job.
+notes: >-
+  Codes derived from the documented Authentication + Rate limiting + Document
+  reference pages. Not RFC 9457 (application/problem+json) — Raid AI uses a
+  custom { error: { code, message } } envelope. No public OpenAPI spec is
+  available (api.raidxai.com/openapi.json is 401-gated) so the full 4xx/5xx
+  registry could not be derived from a spec.
