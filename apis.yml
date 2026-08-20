@@ -44,6 +44,17 @@ tags:
 - Voice / Audio Detection
 - Image Forensics
 - Document Forensics
+- Fact Checking
+- Trust and Safety
+- Security
+tags_raw:
+- Company
+- Deepfake Detection
+- AI Content Detection
+- Media Forensics
+- Voice / Audio Detection
+- Image Forensics
+- Document Forensics
 - Fact-Checking
 - Trust & Safety
 - Security
@@ -62,6 +73,12 @@ apis:
   humanURL: https://docs.raidxai.com/docs
   baseURL: https://api.raidxai.com
   tags:
+  - Deepfake Detection
+  - Image Forensics
+  - Voice Analysis
+  - Document Forensics
+  - Fact Checking
+  tags_raw:
   - Deepfake Detection
   - Image Forensics
   - Voice Analysis
