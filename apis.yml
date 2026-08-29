@@ -14,6 +14,17 @@ description: >-
   Zoom, Google Meet, Slack, Webex, and WhatsApp for financial services, call
   centers, enterprise meetings, and government use cases.
 url: https://raw.githubusercontent.com/api-evangelist/raid-ai/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
