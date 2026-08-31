@@ -55,7 +55,7 @@ tags:
 - Voice / Audio Detection
 - Image Forensics
 - Document Forensics
-- Fact Checking
+- Fact-Checking
 - Trust and Safety
 - Security
 tags_raw:
@@ -88,7 +88,7 @@ apis:
   - Image Forensics
   - Voice Analysis
   - Document Forensics
-  - Fact Checking
+  - Fact-Checking
   tags_raw:
   - Deepfake Detection
   - Image Forensics
